@@ -1,0 +1,28 @@
+ul.pagination{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    li{
+        // display: inline-block;
+        margin:5px;
+        a{
+            color: #fff;
+            padding:5px 12px;
+            transition: all 300ms ease;
+            font-size:18px;
+
+            &.ri-arrow-right-s-line:hover,&.ri-arrow-right-s-line,
+            &.ri-arrow-left-s-line:hover,&.ri-arrow-left-s-line{
+                background: none;
+                padding:5px 2px;
+            }
+            &:hover{
+                background-color: #3e4dd1;
+            }
+            &.current-page{
+                background-color: #3e4dd1;
+            }
+        }
+    }
+}

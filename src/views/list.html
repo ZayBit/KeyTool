@@ -1,0 +1,62 @@
+<%- include('./includes/header.html') %>
+<p class="message-clipboard"><span>Copiado <i class="ri-clipboard-line"></i></span></p>
+  <main class="main-section">
+    <a href="/home" class="arrow arrow-left ri-add-circle-line visible-arrow" title="Crear nueva contraseña"></a>
+    <button class="btn-destroy-session ri-logout-box-line" title="Cerrar sesion"></button>
+    <section class="section-results">
+      <h1 class="title">Contraseñas <i class="ri-shield-keyhole-line"></i></h1>
+      <% if(data.length){ %>
+      <table class="results">
+        <thead>
+          <tr>
+            <th>Enlace</th>
+            <th>Pagina</th>
+            <th>Contraseña</th>
+            <th>Accion</th>
+          </tr>
+        </thead>
+        <tbody class="items-container">
+            <% data.forEach((key)=>{ %>
+              <tr>
+                <td><button data-link="https://www.<%= key.link %>" target="_blank" class="ri-link btn-link"></button>
+                </td>
+                <td class="td-title"><span class="title">
+                    <%= key.title %>
+                  </span></td>
+                <td class="td-key"><span class="key">
+                  <input type="text" value="<%= key.key %>" class="hidden-key-input">
+                    <%= key.key %> <button class="ri-clipboard-line btn-clipboard" title="copiar"></button>
+                  </span></td>
+                <td><a href="/list?page=<%= page  %>&delete=<%= key.id  %>" class="btn-delete">Eliminar</a></td>
+              </tr>
+              <%}) %>
+        </tbody>
+      </table>
+      <% }else{ %>
+        <h2 class="empty-resuls">No hay contraseñas generadas</h2>
+        <% } %>
+
+      <ul class="pagination">
+        <% if(page>= total){ %>
+          <li>
+            <a href="/list?page=<%=parseInt(page)-1%>" class="ri-arrow-left-s-line"></a>
+          </li>
+          <% } %>
+            <% pages.forEach((num,i)=> { %>
+              <li>
+                <a href="/list?page=<%=num%>" class="<%= num == page ? 'current-page' : '' %>">
+                  <%= num %>
+                </a>
+              </li>
+              <% }); %>
+                <% if(page < total){ %>
+                  <li>
+                    <a href="/list?page=<%=parseInt(page)+1%>" class="ri-arrow-right-s-line"></a>
+                  </li>
+                  <% } %>
+      </ul>
+
+    </section>
+    </div>
+    <script src="js/renderer.js"></script>
+    <%- include('./includes/footer.html') %>

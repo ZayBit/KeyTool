@@ -1,0 +1,35 @@
+<%- include('./includes/header.html') %>
+<main class="main-section">
+  <section> 
+    <a href="list?page=1" class="arrow arrow-right ri-shield-keyhole-line" title="Contraseñas"></a>
+    <button class="btn-destroy-session ri-logout-box-line" title="Cerrar sesion"></button>
+    <form id="generateKey">
+      <h3>Titulo y enlace</h3>
+      <section class="form-section-head">
+        <input type="text" placeholder="titulo" name="title" id="title" required>
+        <input type="text" id="url" name="url" placeholder="ejemplo.com" required>
+      </section>
+      <section class="form-section-create">
+        <input type="text" class="input-pass" disabled value="31$!23$1%&&" name="password">
+        <button type="submit">Generar</button>
+      </section>
+      <h3>Opciones</h3>
+      <section class="form-section-options">
+        <label for="maxLength">Longitud</label>
+        <input type="number" name="maxLength" id="maxLength" value="12" min="4" max="100">
+        <label for="abc">abc</label>
+        <input type="checkbox" name="abc" id="abc" checked>
+        <label for="capitalLetter">ABC</label>
+        <input type="checkbox" name="capitalLetter" id="capitalLetter">
+        <label for="symbols">Simbolos</label>
+        <input type="checkbox" name="symbols" id="symbols">
+        <label for="numbs">Numeros</label>
+        <input type="checkbox" name="numbs" id="numbs">
+      </section>
+      <h3>Finalizar</h3>
+      <button type="button" class="btn-confirm-create">Crear</button>
+    </form>
+  </section>
+</main>
+<script src="js/renderer.js"></script>
+<%- include('./includes/footer.html') %>

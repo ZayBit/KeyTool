@@ -1,0 +1,44 @@
+main{
+    margin:15px auto;
+    text-align: center;
+
+    #authen{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height:100vh;
+        margin:15px;
+        p{
+            color: #c5c2c2;
+            margin:10px;
+        }
+        label{
+            color: #fff;
+        }
+        input{
+            background: #fff;
+        }
+        input,button{
+            padding:10px 15px;
+            border-radius:10px;
+        }
+        button{
+            margin: 15px 0;
+            cursor: pointer;
+            background: #2b369b;
+            color: #fff;
+            font-size:17px;
+            font-weight: 500;
+            &.submit-hidden{
+                display: none;
+            }
+        }
+        p.authen-error-message{
+            display: none;
+            &.error-message-visible{
+                display: block;
+            }
+        }
+    }
+}
